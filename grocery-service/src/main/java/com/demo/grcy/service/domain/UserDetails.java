@@ -6,6 +6,9 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
+/**
+ * User Details domain class
+ **/
 @Entity(name = "user_details")
 @Data
 public class UserDetails {

@@ -6,6 +6,9 @@ import javax.persistence.*;
 import java.util.List;
 import java.util.UUID;
 
+/**
+ * Booking Details domain class
+ **/
 @Entity(name = "booking_details")
 @Data
 public class BookingDetails {

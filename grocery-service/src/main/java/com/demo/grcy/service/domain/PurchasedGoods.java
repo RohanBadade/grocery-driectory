@@ -5,6 +5,9 @@ import lombok.Data;
 import javax.persistence.*;
 import java.util.UUID;
 
+/**
+ * Purchased Goods domain class
+ **/
 @Entity(name = "purchased_goods")
 @Data
 public class PurchasedGoods {

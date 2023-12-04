@@ -11,9 +11,18 @@ import javax.persistence.PersistenceException;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * Grocery Repository Implementation class implementing GroceryRepository interface.
+ * **/
 @ApplicationScoped
 public class GroceryRepositoryImpl implements GroceryRepository {
 
+    /**
+     * Fetches item details based on item name.
+     *
+     * @param itemName grocery item name
+     * @return optional Item domain containing grocery item details
+     **/
     @Override
     public Optional<Item> findByName(String itemName) {
         try {
@@ -23,6 +32,11 @@ public class GroceryRepositoryImpl implements GroceryRepository {
         }
     }
 
+    /**
+     * Deletes grocery item using item name
+     *
+     * @param itemName grocery item name
+     **/
     @Override
     public void deleteByItemName(String itemName) {
         try {
@@ -32,10 +46,15 @@ public class GroceryRepositoryImpl implements GroceryRepository {
         }
     }
 
+    /**
+     * Fetches list of available item details.
+     *
+     * @return  list of item details.
+     **/
     @Override
     public List<Item> listAllAvailableItems() {
         try {
-            return find("status = :status", Parameters.with("status", GroceryStatus.IN_STOCK.getValue())).list();
+            return find("status = :status", Parameters.with("status", GroceryStatus.IN_STOCK)).list();
         } catch (PersistenceException persistenceException) {
             throw Errors.failedToRetrieveGroceryItemList();
         }

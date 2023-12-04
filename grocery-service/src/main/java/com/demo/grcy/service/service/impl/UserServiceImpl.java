@@ -14,6 +14,9 @@ import javax.persistence.PersistenceException;
 import javax.transaction.Transactional;
 import java.util.Random;
 
+/**
+ * User Service Implementation class implementing UserService interface.
+ * */
 @ApplicationScoped
 public class UserServiceImpl implements UserService {
 
@@ -23,7 +26,12 @@ public class UserServiceImpl implements UserService {
     @Inject
     UserRepository userRepository;
 
-
+    /**
+     * Registers User details.
+     *
+     * @param registerUserDetailsRequest object containing user details
+     * @return RegisterGroceryItemsResponse object containing user id.
+     **/
     @Override
     @Transactional
     public RegisterUserDetailsResponse registerUser(RegisterUserDetailsRequest registerUserDetailsRequest) {
@@ -32,6 +40,12 @@ public class UserServiceImpl implements UserService {
         return userMapper.mapToUserDetailsResponse(userDetails);
     }
 
+    /**
+     * Persists User details.
+     *
+     * @param registerUserDetailsRequest object containing user details
+     * @return domain object containing persisted user details.
+     **/
     private UserDetails persistUserDetails(String userId, RegisterUserDetailsRequest registerUserDetailsRequest) {
         UserDetails userDetails = userMapper.mapToUserDomain(userId, registerUserDetailsRequest);
         try {
@@ -42,6 +56,12 @@ public class UserServiceImpl implements UserService {
         return userDetails;
     }
 
+    /**
+     * Generates a user identifier based on first name and last name.
+     *
+     * @param registerUserDetailsRequest object containing user details
+     * @return generated user id.
+     **/
     private String generateUserId(RegisterUserDetailsRequest registerUserDetailsRequest) {
         return registerUserDetailsRequest.getFirstName().substring(0,3) +
                 registerUserDetailsRequest.getLastName().substring(0,3) +
