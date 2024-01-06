@@ -1,1 +1,1 @@
-mvn clean complile quarkus:dev -Ddebug=24109
+mvn clean compile quarkus:dev -Ddebug=24109
