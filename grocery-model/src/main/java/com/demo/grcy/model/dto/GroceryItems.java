@@ -14,14 +14,14 @@ import javax.validation.constraints.Size;
 @Schema(name = "GroceryItems")
 public class GroceryItems {
 
-    @NotBlank(message = "Item Name " + ErrorMessages.NOT_PROVIDED)
-    @Size(message = "Item Name " + ErrorMessages.MAXIMUM_50_SIZE_EXCEEDS)
+    @NotBlank(message = "Item Name" + ErrorMessages.NOT_PROVIDED)
+    @Size(message = "Item Name" + ErrorMessages.MAXIMUM_50_SIZE_EXCEEDS)
     @JsonProperty("ItemName")
     @Schema(name = "ItemName", description = "Name of grocery item.")
     private String itemName;
 
-    @NotNull(message = "Quantity " + ErrorMessages.NOT_PROVIDED)
-    @Min(value = 1, message = "Quantity " + ErrorMessages.CANNOT_BE_LESS_THAN_ONE)
+    @NotNull(message = "Quantity" + ErrorMessages.NOT_PROVIDED)
+    @Min(value = 1, message = "Quantity" + ErrorMessages.CANNOT_BE_LESS_THAN_ONE)
     @JsonProperty("Quantity")
     @Schema(name = "Quantity", description = "Quantity of grocery item in stock.")
     private int quantity;
